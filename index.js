@@ -15,8 +15,7 @@ app.use(staticServer(staticPath));
 
 //接口
 router.post('/deploy-front-end', async (ctx) => {
-
-    cmd.get('ls -a', function (err, data, stderr) {
+    cmd.get('git pull', function (err, data, stderr) {
             console.log(stderr);
             console.log(data)
             if (!err) {
@@ -31,6 +30,7 @@ router.post('/deploy-front-end', async (ctx) => {
 
 //发布前端
 function deployFrontEnd() {
+
     // todo,前端为静态文件，只需要把最新代码放入指定目录
     // 1.进入指定目录 cd
     // 2.获取最新代码 git pull
