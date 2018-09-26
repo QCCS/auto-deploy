@@ -14,7 +14,7 @@ let staticPath = __dirname + "/static";
 app.use(staticServer(staticPath));
 
 //接口
-router.get('/deploy-front-end', async (ctx) => {
+router.post('/deploy-front-end', async (ctx) => {
     cmd.get('ls -a', function (err, data, stderr) {
             console.log(stderr);
             console.log(data)
@@ -35,7 +35,7 @@ function deployFrontEnd() {
 }
 
 
-router.get('/deploy-back-end', async (ctx) => {
+router.post('/deploy-back-end', async (ctx) => {
     cmd.get('ls -a', function (err, data, stderr) {
             console.log(stderr);
             console.log(data)
