@@ -49,6 +49,8 @@ router.get('/deploy-back-end', async (ctx) => {
 });
 
 //发布后端
+//后端目前打包遵循commonjs规范，没有把模块打包进去
+//所以需要安装依赖，再次打包
 function deployBackEnd() {
     // todo
     // 1.进入指定目录 cd
