@@ -15,16 +15,18 @@ app.use(staticServer(staticPath));
 
 //接口
 router.post('/deploy-front-end', async (ctx) => {
+
     cmd.get('ls -a', function (err, data, stderr) {
             console.log(stderr);
             console.log(data)
             if (!err) {
-                console.log("发布完成")
+                console.log("前端发布完成")
             } else {
                 console.log('error', err)
             }
         }
     );
+    ctx.body = "前端发布完成";
 });
 
 //发布前端
@@ -46,6 +48,7 @@ router.post('/deploy-back-end', async (ctx) => {
             }
         }
     );
+    ctx.body = "后端发布完成";
 });
 
 //发布后端
